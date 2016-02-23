@@ -23,15 +23,14 @@ var styles = _reactNative.StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: 'black',
     paddingTop: 20,
+    backgroundColor: '#000',
     paddingBottom: 40
   },
   row: {
     paddingRight: 40,
     paddingLeft: 40
   },
-  actions: {},
   header: {
     borderBottomWidth: 1,
     borderBottomColor: 'grey',
@@ -50,7 +49,7 @@ var styles = _reactNative.StyleSheet.create({
     marginBottom: 20,
     marginLeft: 50,
     marginRight: 50,
-    opacity: 0.5
+    opacity: 0.7
   },
   blurbText: {
     flex: 0.5,
@@ -75,7 +74,6 @@ var styles = _reactNative.StyleSheet.create({
     height: 30
   },
   mainButton: {
-    backgroundColor: '#2FA0E8',
     justifyContent: 'center',
     alignItems: 'center',
     height: 40,
@@ -85,7 +83,6 @@ var styles = _reactNative.StyleSheet.create({
     marginTop: 20
   },
   highlightText: {
-    color: '#2FA0E8',
     textAlign: 'center'
   },
   text: {
@@ -159,20 +156,28 @@ var PushReminder = function (_React$Component) {
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      _reactNative.StatusBarIOS.setStyle(this.props.defaultStatusBarColor, true);
+      _reactNative.StatusBarIOS.setStyle(this.props.statusBarColor, true);
     }
-  }, {
-    key: 'handleTouch',
-    value: function handleTouch() {}
   }, {
     key: 'openSettings',
     value: function openSettings() {
-      console.log('open settings');
       _reactNative.LinkingIOS.openURL("app-settings:");
     }
   }, {
     key: 'render',
     value: function render() {
+      var backButton = !this.props.goBack ? null : _reactNative2.default.createElement(
+        _reactNative.TouchableHighlight,
+        {
+          onPress: this.props.goBack,
+          style: styles.secondaryButton },
+        _reactNative2.default.createElement(
+          _reactNative.Text,
+          { style: [styles.highlightText, { color: this.props.btnColor }] },
+          'Remind me later'
+        )
+      );
+
       return _reactNative2.default.createElement(
         _reactNative.View,
         { style: styles.container },
@@ -205,17 +210,7 @@ var PushReminder = function (_React$Component) {
               'Go To Settings'
             )
           ),
-          _reactNative2.default.createElement(
-            _reactNative.TouchableHighlight,
-            {
-              onPress: this.handleTouch.bind(this),
-              style: styles.secondaryButton },
-            _reactNative2.default.createElement(
-              _reactNative.Text,
-              { style: [styles.highlightText, { color: this.props.btnColor }] },
-              'Remind me later'
-            )
-          )
+          backButton
         )
       );
     }
@@ -228,7 +223,15 @@ var PushReminder = function (_React$Component) {
 
 PushReminder.defaultProps = {
   blurb: 'This app works best when you and your friends can see new activity straight away',
-  btnColor: '#2FA0E8'
+  btnColor: '#2FA0E8',
+  statusBarColor: 'default'
+};
+
+PushReminder.propTypes = {
+  blurb: _reactNative2.default.PropTypes.string,
+  btnColor: _reactNative2.default.PropTypes.string,
+  statusBarColor: _reactNative2.default.PropTypes.string.isRequired,
+  goBack: _reactNative2.default.PropTypes.func
 };
 
 exports.default = PushReminder;

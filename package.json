@@ -1,9 +1,23 @@
 {
   "name": "rn-push-reminder",
-  "version": "0.0.1",
+  "description": "Inspired by the modal used in Facebook's messenger app to remind the user to enable push notifications, is a react native component that lets you easily add the same reminder to your iOS app.",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "keywords": [
+    "react",
+    "react-component",
+    "modal",
+    "push-notifications",
+    "react-native"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cameronbourke/rn-push-reminder.git"
+  },
   "scripts": {
     "compile": "babel src/push-reminder.js --out-file dist/index.js",
-    "compile:watch": "babel src/push-reminder.js --watch --out-file example/app/push-reminder.js"
+    "compile:watch": "babel src/push-reminder.js --watch --out-file example/app/push-reminder.js",
+    "prepublish": "npm run compile"
   },
   "files": [
     "dist"

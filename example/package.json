@@ -5,6 +5,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "react-native": "0.19.0"
+    "react-native": "0.19.0",
+    "rn-push-reminder": "0.0.1"
   }
 }
