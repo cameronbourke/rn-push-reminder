@@ -3,7 +3,9 @@ rn-push-reminder
 
 Inspired by the modal used in Facebook's messenger app to remind the user to enable push notifications, <PushReminder /> is a react native component that lets you easily add the same reminder to your iOS app.
 
-[Screenshot of <PushReminder />](http://puu.sh/nhNPp/3c55a2897b.png)
+Screenshot of `<PushReminder />`
+
+![screenshot of the component](http://puu.sh/nhUIW/1164e8d23f.png)
 
 ## Installation
 ```
@@ -12,7 +14,7 @@ npm install --save rn-push-reminder
 
 ## Example
 To build the example locally, clone this repo then run:
-*Note* you will need a mac, Xcode and the iOS simulator installed
+*Note* you will need a mac, Xcode and the iOS simulator installedÂ
 
 ```
 cd example
