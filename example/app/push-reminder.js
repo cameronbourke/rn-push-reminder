@@ -166,6 +166,18 @@ var PushReminder = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var backButton = !this.props.goBack ? null : _reactNative2.default.createElement(
+        _reactNative.TouchableHighlight,
+        {
+          onPress: this.props.goBack,
+          style: styles.secondaryButton },
+        _reactNative2.default.createElement(
+          _reactNative.Text,
+          { style: [styles.highlightText, { color: this.props.btnColor }] },
+          'Remind me later'
+        )
+      );
+
       return _reactNative2.default.createElement(
         _reactNative.View,
         { style: styles.container },
@@ -198,17 +210,7 @@ var PushReminder = function (_React$Component) {
               'Go To Settings'
             )
           ),
-          _reactNative2.default.createElement(
-            _reactNative.TouchableHighlight,
-            {
-              onPress: this.props.goBack,
-              style: styles.secondaryButton },
-            _reactNative2.default.createElement(
-              _reactNative.Text,
-              { style: [styles.highlightText, { color: this.props.btnColor }] },
-              'Remind me later'
-            )
-          )
+          backButton
         )
       );
     }
@@ -228,7 +230,7 @@ PushReminder.defaultProps = {
 PushReminder.propTypes = {
   blurb: _reactNative2.default.PropTypes.string,
   btnColor: _reactNative2.default.PropTypes.string,
-  statusBarColor: _reactNative2.default.PropTypes.string,
+  statusBarColor: _reactNative2.default.PropTypes.string.isRequired,
   goBack: _reactNative2.default.PropTypes.func
 };
 

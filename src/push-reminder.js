@@ -119,6 +119,14 @@ class PushReminder extends React.Component {
   }
 
   render() {
+    const backButton = !this.props.goBack ? null : (
+      <TouchableHighlight
+        onPress={this.props.goBack}
+        style={styles.secondaryButton}>
+        <Text style={[styles.highlightText, { color: this.props.btnColor }]}>Remind me later</Text>
+      </TouchableHighlight>
+    );
+
     return (
       <View style={styles.container}>
 
@@ -140,11 +148,7 @@ class PushReminder extends React.Component {
             <Text style={styles.text}>Go To Settings</Text>
           </TouchableHighlight>
 
-          <TouchableHighlight
-            onPress={this.props.goBack}
-            style={styles.secondaryButton}>
-            <Text style={[styles.highlightText, { color: this.props.btnColor }]}>Remind me later</Text>
-          </TouchableHighlight>
+          {backButton}
         </View>
 
       </View>
@@ -161,7 +165,7 @@ PushReminder.defaultProps = {
 PushReminder.propTypes = {
   blurb: React.PropTypes.string,
   btnColor: React.PropTypes.string,
-  statusBarColor: React.PropTypes.string,
+  statusBarColor: React.PropTypes.string.isRequired,
   goBack:  React.PropTypes.func,
 };
 
